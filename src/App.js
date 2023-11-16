@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Switch, Link, Routes } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Layout, Typography, Space } from "antd";
+
+import {
+    Navbar,
+    Exchanges,
+    Homepage,
+    CryptoDetails,
+    Cryptocurrencies,
+    News,
+} from "./components";
+import "./App.css";
+
+const App = () => {
+    return (
+        <div className="app">
+            <div className="navbar">
+                <Navbar />
+            </div>
+            <div className="main">
+                <Layout>
+                    <div className="routes">
+                        <Routes>
+                            <Route path="/" element={<Homepage />} />
+                            <Route path="exchanges" element={<Exchanges />} />
+                            <Route
+                                path="cryptocurrencies"
+                                element={<Cryptocurrencies />}
+                            />
+                            <Route
+                                path="crypto/:coinId"
+                                element={<CryptoDetails />}
+                            />
+                            <Route path="news" element={<News />} />
+                        </Routes>
+                    </div>
+                </Layout>
+                <div className="footer">
+                    <Typography.Title
+                        aria-level={5}
+                        style={{ color: "white", textAlign: "center" }}
+                    >
+                        Cryptoverse <br />
+                        All right reserverd
+                    </Typography.Title>
+                    <Space>
+                        <Link to="/">Home</Link>
+                        <Link to="exchanges">Exchanges</Link>
+                        <Link to="news">News</Link>
+                    </Space>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default App;
