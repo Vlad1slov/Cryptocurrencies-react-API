@@ -42,7 +42,7 @@ const Cryptocurrencies = ({ simplified }) => {
                         className="crypto-card"
                         key={index}
                     >
-                        <Link to={`crypto/${currency.id}`}>
+                        <Link to={`crypto/${index}`}>
                             <Card
                                 title={`${currency.rank}. ${currency.name}`}
                                 extra={

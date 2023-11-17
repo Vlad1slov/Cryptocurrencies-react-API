@@ -30,7 +30,7 @@ const App = () => {
                                 element={<Cryptocurrencies />}
                             />
                             <Route
-                                path="crypto/:coinId"
+                                path="cryptocurrencies/crypto/:coinId"
                                 element={<CryptoDetails />}
                             />
                             <Route path="news" element={<News />} />
@@ -43,7 +43,7 @@ const App = () => {
                         style={{ color: "white", textAlign: "center" }}
                     >
                         Cryptoverse <br />
-                        All right reserverd
+                        All right reserved
                     </Typography.Title>
                     <Space>
                         <Link to="/">Home</Link>
