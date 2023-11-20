@@ -4,6 +4,7 @@ import { Card, Row, Col, Input } from "antd";
 import { useState, useEffect } from "react";
 
 import { useGetCryptosQuery } from "../services/cryptoAPI";
+import Loader from "./Loader";
 
 const Cryptocurrencies = ({ simplified }) => {
     const count = simplified ? 10 : 100;
@@ -20,7 +21,7 @@ const Cryptocurrencies = ({ simplified }) => {
     }, [cryptosList, searchTerm]);
 
     if (isFetching) {
-        return "Loading...";
+        return <Loader />;
     }
 
     return (
@@ -42,7 +43,7 @@ const Cryptocurrencies = ({ simplified }) => {
                         className="crypto-card"
                         key={index}
                     >
-                        <Link to={`crypto/${index}`}>
+                        <Link to={`crypto/${currency.uuid}`}>
                             <Card
                                 title={`${currency.rank}. ${currency.name}`}
                                 extra={
